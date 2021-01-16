@@ -9,7 +9,7 @@ textarea.focus()
 textarea.addEventListener('keyup', (e) => {
     createTags(e.target.value)
 
-    if(e.key === 'Enter'){
+    if(e.key === 'Enter') {
         setTimeout(() => {
             e.target.value = ''
         }, 10)
@@ -33,26 +33,28 @@ function createTags(input) {
 }
 
 // Random select function
-function randomSelect(){
+function randomSelect() {
     const times = 30
+
     const interval = setInterval(() => {
         const randomTag = pickRandomTag()
 
         highlightTag(randomTag)
 
         setTimeout(() => {
-            removeHighlightTag(randomTag)
+            unHighlightTag(randomTag)
         }, 100)
-    }, 100)
+    }, 100);
 
     setTimeout(() => {
         clearInterval(interval)
+
         setTimeout(() => {
             const randomTag = pickRandomTag()
 
             highlightTag(randomTag)
-
         }, 100)
+
     }, times * 100)
 }
 
